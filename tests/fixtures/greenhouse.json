@@ -1,0 +1,80 @@
+{
+ "jobs": [
+  {
+   "id": 4001,
+   "title": "Finance Intern (Summer 2027)",
+   "absolute_url": "https://job-boards.greenhouse.io/acme/jobs/4001",
+   "location": {
+    "name": "Lisbon, Portugal"
+   },
+   "updated_at": "2026-09-20T10:00:00-04:00",
+   "first_published": "2026-09-18T10:00:00-04:00",
+   "departments": [
+    {
+     "name": "Finance"
+    }
+   ],
+   "offices": [
+    {
+     "name": "Lisbon"
+    }
+   ],
+   "content": "&lt;p&gt;Join our &lt;strong&gt;FP&amp;amp;A&lt;/strong&gt; team for a summer internship.&lt;/p&gt;"
+  },
+  {
+   "id": 4002,
+   "title": "Senior Software Engineer, Payments",
+   "absolute_url": "https://x/4002",
+   "location": {
+    "name": "Dublin"
+   },
+   "updated_at": "2026-09-01T00:00:00Z",
+   "departments": [],
+   "offices": [],
+   "content": ""
+  },
+  {
+   "id": 4003,
+   "title": "Business Operations Analyst",
+   "absolute_url": "https://x/4003",
+   "location": {
+    "name": "London, UK"
+   },
+   "updated_at": "2026-09-01T00:00:00Z",
+   "departments": [
+    {
+     "name": "BizOps"
+    }
+   ],
+   "offices": [],
+   "content": "&lt;p&gt;You have 5+ years of experience in consulting.&lt;/p&gt;"
+  },
+  {
+   "id": 4004,
+   "title": "Strategy &amp; Operations Intern",
+   "absolute_url": "https://x/4004",
+   "location": {
+    "name": "San Francisco, CA"
+   },
+   "updated_at": "2026-09-01T00:00:00Z",
+   "departments": [],
+   "offices": [],
+   "content": ""
+  },
+  {
+   "id": 4005,
+   "title": "Software Engineer Intern",
+   "absolute_url": "https://x/4005",
+   "location": {
+    "name": "Lisbon, Portugal"
+   },
+   "updated_at": "2026-09-01T00:00:00Z",
+   "departments": [],
+   "offices": [],
+   "content": ""
+  }
+ ],
+ "meta": {
+  "total": 5
+ }
+}

@@ -1,0 +1,40 @@
+# Candidate profile used by Stage-2 LLM scoring (jobradar/scoring.py): example.
+# Copy to config/profile.yaml and replace every line with your own facts. It is read on every run;
+# re-score existing matches afterwards with:  docker compose run --rm jobradar score --rescore
+# Be candid: the scorer is only as honest as this file. The real profile.yaml is never committed.
+
+name: Alex
+education:
+  - "MSc in Management (second year), graduating January 2028."
+  - "BSc in Economics. Strong in accounting and finance courses, average in pure maths."
+experience:
+  - role: "Finance Operations Intern, mid-size distributor (6 months)"
+    highlights:
+      - "Automated recurring ERP exports with Python, saving several hundred hours a year"
+      - "Built receivables-aging and DSO reporting for senior management"
+projects:
+  - "Self-hosted data stack (Docker, Postgres, n8n)"
+  - "This job-monitoring system"
+skills: ["Python", "SQL / Postgres", "ERP data (SAP)", "data pipelines & automation", "dashboards / BI"]
+languages: ["English: fluent", "Spanish: conversational, fine where it is a plus, risky where fluency is required"]
+work_authorization: "EU citizen: no sponsorship needed in the EU; UK and Switzerland need a permit"
+
+availability:
+  priority_1: "Summer internship 2027 (June-September 2027): highest priority"
+  priority_2: "Off-cycle internship starting around September/October 2027 (3-6 months)"
+  graduate_roles: "Full-time / graduate programmes only if they start February 2028 or later"
+  not_available: "Anything starting before summer 2027 (still studying)"
+
+role_scope:
+  in_scope:
+    - "Finance operations, treasury, FP&A, controlling, financial reporting"
+    - "Strategy, business operations, business analyst, data & BI roles, especially where Python or automation are valued"
+  out_of_scope:
+    - "Software engineering, sales, marketing, HR, legal, customer support"
+  note: "Judge by the actual work, not the employer."
+
+locations: ["Lisbon", "Milan", "Zurich", "London", "other EU hubs", "remote within the EU"]
+
+grades_policy: >-
+  Grades matter only at employers that screen on them. Everywhere else, do not penalise an average grade.
+strong_fit_employers: "Employers that hire on demonstrated skills: fintech, scale-ups, finance-ops and BI teams."

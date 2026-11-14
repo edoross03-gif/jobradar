@@ -1,0 +1,15 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+config/*.bak
+config/discover_report_*.md
+exports/
+_archive/
+desktop.ini
+
+# Local only: the real profile and registry (examples are committed), deploy target, working documents
+.deploy.env
+config/profile.yaml
+config/companies.yaml
+docs/

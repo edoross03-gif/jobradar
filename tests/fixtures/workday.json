@@ -1,0 +1,24 @@
+{
+ "total": 2,
+ "jobPostings": [
+  {
+   "title": "Finance Intern - Summer 2027",
+   "externalPath": "/job/Zurich/Finance-Intern_JR100",
+   "locationsText": "Zurich, Switzerland",
+   "postedOn": "Posted 2 Days Ago",
+   "bulletFields": [
+    "JR100"
+   ]
+  },
+  {
+   "title": "Senior Director, Treasury",
+   "externalPath": "/job/Santa-Clara/Senior-Director_JR101",
+   "locationsText": "US, CA, Santa Clara",
+   "postedOn": "Posted Today",
+   "bulletFields": [
+    "JR101"
+   ]
+  }
+ ],
+ "facets": []
+}

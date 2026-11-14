@@ -1,0 +1,18 @@
+{
+ "offers": [
+  {
+   "id": 991,
+   "title": "Junior Treasury Analyst",
+   "status": "published",
+   "location": "Zurich, Switzerland",
+   "city": "Zurich",
+   "country": "Switzerland",
+   "careers_url": "https://acme.recruitee.com/o/junior-treasury",
+   "published_at": "2026-09-20 10:00:00 UTC",
+   "employment_type_code": "fulltime",
+   "remote": false,
+   "description": "<p>0-2 years of experience</p>",
+   "department": "Finance"
+  }
+ ]
+}

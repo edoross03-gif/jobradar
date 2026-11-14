@@ -1,0 +1,33 @@
+# Job Radar — runs every $RUN_EVERY (default 4h), writes to Postgres schema `jobradar`, alerts on Telegram.
+#
+#  A) Warehouse Postgres already running in another compose project:
+#       cp docker-compose.override.example.yml docker-compose.override.yml   # joins its network
+#       docker compose up -d
+#  B) No warehouse yet:
+#       docker compose --profile standalone up -d                            # own Postgres container
+services:
+  jobradar:
+    build: .
+    container_name: jobradar
+    env_file: .env
+    command: ["loop", "--every", "${RUN_EVERY:-4h}"]
+    volumes:
+      - ./config:/app/config          # registry + filters editable without rebuild; `discover --write` persists
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options: {max-size: "10m", max-file: "3"}
+
+  jobradar-db:
+    profiles: [standalone]
+    image: postgres:16-alpine
+    container_name: jobradar-db
+    environment:
+      POSTGRES_DB: jobradar
+      POSTGRES_USER: jobradar
+      POSTGRES_PASSWORD: ${JOBRADAR_DB_PASSWORD:-change-me}
+    volumes: [jobradar-pg:/var/lib/postgresql/data]
+    restart: unless-stopped
+
+volumes:
+  jobradar-pg:

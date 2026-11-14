@@ -1,0 +1,98 @@
+# Stage-1 rules filter. Tune freely — no code changes needed.
+# All patterns are case-insensitive regex fragments, matched on word boundaries.
+
+locations:
+  # label: patterns matched against location / city fields
+  cities:
+    Lisbon:     [lisbon, lisboa, oeiras, cascais, carcavelos, sintra, almada, lisbona]
+    Porto:      [porto, oporto, "vila nova de gaia", braga]
+    Milan:      [milan, milano, "sesto san giovanni", assago, segrate]
+    Zurich:     [zurich, zürich, zuerich, zurigo]
+    Geneva:     [geneva, genève, geneve, genf, lausanne, ginevra]
+    London:     [london, londra]
+    Madrid:     [madrid]
+    Barcelona:  [barcelona, barcellona]
+    Paris:      [paris, "la défense", "la defense", parigi]
+    Amsterdam:  [amsterdam]
+    Berlin:     [berlin]
+    Dublin:     [dublin]
+    Frankfurt:  [frankfurt, francoforte]
+    Munich:     [munich, münchen, muenchen, "monaco di baviera"]
+    Stockholm:  [stockholm, stoccolma]
+    Vienna:     [vienna, wien]
+    Luxembourg: [luxembourg, lussemburgo]
+    Brussels:   [brussels, bruxelles]
+    Warsaw:     [warsaw, warszawa, varsavia]
+    Budapest:   [budapest]
+  # Country names/codes: used only when a posting has no recognisable city.
+  countries:
+    Portugal: [portugal, PT, PRT, portogallo]
+    Italy: [italy, italia, IT, ITA]
+    Switzerland: [switzerland, schweiz, suisse, CH, CHE, svizzera]
+    UK: ["united kingdom", UK, GB, GBR, england, "regno unito"]
+    Spain: [spain, españa, ES, ESP, spagna]
+    France: [france, FR, FRA, francia]
+    Netherlands: [netherlands, NL, NLD, "paesi bassi", olanda]
+    Germany: [germany, deutschland, DE, DEU, germania]
+    Ireland: [ireland, IE, IRL, irlanda]
+    Luxembourg: [luxembourg, LU, LUX, lussemburgo]
+    Poland: [poland, polska, PL, POL, polonia]
+    Hungary: [hungary, magyarország, HU, HUN, ungheria]
+  # A posting counts as remote-eligible if it says remote AND one of these scopes (or no scope at all)
+  remote_words: [remote, "work from home", "wfh", "distributed", "anywhere"]
+  remote_scopes: [europe, emea, eu, "european union", portugal, italy, spain, uk, global, worldwide, anywhere, international]
+  remote_blockers: ["us only", "usa only", "united states only", "us-based", "must be based in the us", "americas", "latam", "apac", "north america", "us remote", "remote - us", "remote, us", "remote (us"]
+
+seniority:
+  # Strong early-career signals → pass even with a soft exclude (e.g. "Product Manager Intern")
+  strong: [intern, interns, internship, internships, "summer analyst", "summer associate", "off-cycle", "off cycle",
+           placement, "industrial placement", graduate, graduates, "new grad", "grad scheme", trainee, traineeship,
+           "working student", werkstudent, praktikum, praktikant, praktikantin, stage, stagiaire, stagista, tirocinio,
+           tirocinante, "estágio", "estágios", estagio, estagios, "estagiário", estagiario, becario, becaria, beca, becas, "prácticas", practicas,
+           "early career", "early careers", "entry level", "entry-level", "campus", "university program", "rotational program",
+           "young professional", "junior", "analyst program", "analyst programme", "internship program", "internship programme",
+           "geração caixa", "programa de trainees", "recém-licenciado", "recém-licenciados", "recém licenciados"]
+  # Weak signals → pass only if no soft exclude and no >= max_yoe years-of-experience requirement
+  weak: [analyst, associate, "business development representative", "sales development representative", bdr, sdr,
+         "analyst i", "associate i"]
+  hard_exclude: [senior, "sénior", "sr\\.?", principal, staff, director, "head of", vp, "vice president", chief, "phd", "ph\\.d",
+                 postdoc, "post-doc", "summer 2026", "2026 summer", "internship 2026", "2026 internship", "mba intern", "mba internship", "mba summer",
+                 "2026\\s+(?:[\\w&-]+\\s+){0,4}intern", "september 2026",
+                 "unsolicited application", "spontaneous application", "candidatura spontanea", "initiativbewerbung",
+                 "2025", "^2026\\s*\\|", "septembre 2026", "septiembre 2026", "settembre 2026", "oktober 2026", "okt 2026"]
+  soft_exclude: [manager, lead, expert, architect, "engineer ii", "engineer iii", "level ii", "level iii", "(?:analyst|associate)\\s+i{2,3}", "associate\\s+[2-9]", officer,
+                 "associate, investment banking", "investment banking associate"]
+  max_yoe: 3
+
+functions:
+  # Clearly-irrelevant functions — hard reject. Keep data/analytics/finance/strategy/sales/ops/legal.
+  exclude: ["software engineer", "software developer", "software engineering", swe, sde, "backend", "back-end", "frontend",
+            "front-end", "full stack", "full-stack", fullstack, ios, android, "mobile engineer", "site reliability", sre, devops,
+            "machine learning engineer", "ml engineer", "research scientist", "research engineer", "applied scientist",
+            hardware, firmware, silicon, asic, fpga, "chip design", "mechanical engineer", "electrical engineer",
+            "chemical engineer", "process engineer", "field engineer", "security engineer", "network engineer",
+            "qa engineer", "test engineer", "embedded", "ux designer", "ui designer", "product designer", "graphic designer",
+            nurse, driver, warehouse, "fulfillment", technician, "delivery associate", "area manager", mechanic, cook, chef,
+            "software dev", "software development engineer", "qa engineering", "infrastructure engineer", "data engineer",
+            "lab engineer", "operations engineering", logistik, logistics, logistique, "shift manager", "construction manager",
+            whs, "product design",
+            "ai engineer", "platform engineer", "(?<!business\\s)developer", surveying, construction, robotics,
+            "llm engineer", "genai engineer", "test automation", "verification engineer", "ai scientist",
+            "\\|\\s*engineering\\s*(?:\\||$)",
+            "personal assistant", "team assistant", "executive assistant", "office manager", bookkeeper, receptionist]
+
+windows:
+  summer_2027: ["summer 2027", "2027 summer", "summer internship", "summer analyst", "summer associate", "summer intern",
+                "june 2027", "july 2027",
+                "prácticas de verano", "verano 2027", "estágio de verão", "estágios de verão", "stage estivo",
+                "stage d'été", "sommerpraktikum"]
+  off_cycle: ["off-cycle", "off cycle", "6 month", "6 months", "6-month", "six month", "six months", "six-month",
+              "3 month", "3 months", "3-month", "semester",
+              "spring 2027", "winter 2027", "fall 2027", "autumn 2027", "january 2027", "february 2027", "march 2027",
+              "april 2027", "immediate start", "asap"]
+  grad_2028: ["graduate program", "graduate programme", "grad scheme", "new grad", "2028", "graduate analyst",
+              "trainee program", "trainee programme", "rotational", "early career", "early careers", "young professional", "geração caixa", "programa de trainees", "recém-licenciados"]
+  working_student: ["working student", werkstudent, "part-time student", "student job"]
+
+search_terms:  # used by query-based adapters (Workday, Amazon)
+  [intern, internship, graduate, trainee, "working student", "summer analyst", "off-cycle", "estágio", stage, tirocinio, praktikum, junior]

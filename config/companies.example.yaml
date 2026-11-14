@@ -1,0 +1,247 @@
+# Job Radar company registry: example. Copy to config/companies.yaml and make it yours.
+# One entry per supported job-board adapter, so every adapter can be tried with `dry-run --only <key>`.
+# Fields: name, key (auto from name if omitted), tier (A/B/C), bucket, ats, slug, config, careers_url, notes, enabled
+# - `ats` empty -> run `python -m jobradar discover --write` to resolve it (review the report first)
+# - tier decides alerting: tiers in INSTANT_TIERS alert on every run, the others go into the daily digest
+# - bucket is a free label (fintech, bank, consulting, ...) passed to the LLM scorer
+companies:
+- name: Amazon
+  key: amazon
+  tier: B
+  bucket: bigtech
+  ats: amazon
+  slug: amazon
+  careers_url: https://www.amazon.jobs
+- name: OpenAI
+  key: openai
+  tier: B
+  bucket: ai
+  ats: ashby
+  slug: openai
+  careers_url: https://openai.com/careers
+- name: UniCredit
+  key: unicredit
+  tier: B
+  bucket: banking
+  ats: avature
+  slug: careers.unicredit.eu
+  careers_url: https://careers.unicredit.eu/
+  config:
+    host: careers.unicredit.eu
+    lang: en_GB
+    section: jobsuche
+- name: Bending Spoons
+  key: bending-spoons
+  tier: B
+  bucket: bigtech
+  ats: bendingspoons
+  slug: bending-spoons
+  careers_url: https://jobs.bendingspoons.com/
+- name: Banque Internationale à Luxembourg
+  key: bil
+  tier: B
+  bucket: banking
+  ats: cornerstone
+  slug: bil
+  careers_url: https://stayforacareer.com/
+  config:
+    corp: bil
+    site: 1
+- name: Microsoft
+  key: microsoft
+  tier: B
+  bucket: bigtech
+  ats: eightfold
+  slug: microsoft.com
+  careers_url: https://jobs.careers.microsoft.com/global/en/search
+  config:
+    host: apply.careers.microsoft.com
+    domain: microsoft.com
+    api: pcsx
+- name: BNP Paribas
+  key: bnp-paribas
+  tier: B
+  bucket: banking
+  ats: empregoestagios
+  slug: bnp-paribas
+  careers_url: https://group.bnpparibas/en/careers/all-job-offers
+  config:
+    feeds:
+    - bnp-paribas
+    max_age_days: 60
+- name: Goldman Sachs
+  key: goldman-sachs
+  tier: B
+  bucket: ib
+  ats: goldman
+  slug: goldman-sachs
+  careers_url: https://www.goldmansachs.com/careers/students
+- name: Stripe
+  key: stripe
+  tier: B
+  bucket: fintech
+  ats: greenhouse
+  slug: stripe
+  careers_url: https://stripe.com/jobs
+- name: Conio
+  key: conio
+  tier: B
+  bucket: fintech
+  ats: htmllinks
+  slug: conio
+  careers_url: https://www.conio.com/jobs/posizioni-aperte
+  config:
+    url: https://www.conio.com/jobs/posizioni-aperte
+    link_pattern: ^/jobs/posizioni-aperte/[a-z0-9-]+$
+    default_location: Milan
+- name: Mediobanca
+  key: mediobanca
+  tier: B
+  bucket: banking
+  ats: intervieweb
+  slug: mediobanca
+  careers_url: https://www.mediobanca.com/en/careers/
+  config:
+    sub: mediobanca
+    domain: mediobanca.com
+    key: 5d5fe2bade7b20b3eeff504912a9afa0
+    lang: it
+- name: NYSE (ICE)
+  key: nyse
+  tier: B
+  bucket: markets
+  ats: jibe
+  slug: careers.ice.com
+  careers_url: https://www.ice.com/careers
+  config:
+    host: careers.ice.com
+- name: Palantir
+  key: palantir
+  tier: B
+  bucket: ai
+  ats: lever
+  slug: palantir
+  careers_url: https://www.palantir.com/careers/
+- name: Aramco Digital
+  key: aramco-digital
+  tier: B
+  bucket: corporate
+  ats: oracle_hcm
+  slug: CX_3001
+  careers_url: https://aramcodigital.com/careers
+  config:
+    host: fa-exrn-saasfaprod1.fa.ocs.oraclecloud.com
+    site: CX_3001
+    lang: en
+- name: Getquin
+  key: getquin
+  tier: B
+  bucket: fintech
+  ats: personio
+  slug: getquin
+  careers_url: https://www.getquin.com/careers
+  config:
+    domain: jobs.personio.de
+- name: Adobe
+  key: adobe
+  tier: B
+  bucket: bigtech
+  ats: phenom
+  slug: careers.adobe.com
+  careers_url: https://careers.adobe.com/us/en
+  config:
+    host: careers.adobe.com
+    refnum: ADOBUS
+    site_country: us
+    lang: en_us
+    countries:
+    - United Kingdom
+    - France
+    - Germany
+    - Ireland
+    - Netherlands
+    - Spain
+    - Italy
+    - Switzerland
+    - Portugal
+    - Belgium
+    - Luxembourg
+    - Poland
+    - Hungary
+    - Sweden
+- name: Cinven
+  key: cinven
+  tier: B
+  bucket: pe
+  ats: pinpoint
+  slug: cinven
+  careers_url: https://cinven.pinpointhq.com/
+- name: Gain.pro
+  key: gain-pro
+  tier: B
+  bucket: fintech
+  ats: recruitee
+  slug: gainpro
+  careers_url: https://www.gain.pro/careers
+- name: ServiceNow
+  key: servicenow
+  tier: B
+  bucket: ai
+  ats: smartrecruiters
+  slug: servicenow
+  careers_url: https://careers.servicenow.com/
+- name: EY
+  key: ey
+  tier: B
+  bucket: consulting
+  ats: successfactors
+  slug: careers.ey.com
+  careers_url: https://careers.ey.com/
+  config:
+    host: careers.ey.com
+    path: /ey
+    locations:
+    - Italy
+    - Spain
+    - Switzerland
+    - United Kingdom
+    - France
+    - Netherlands
+    - Germany
+    - Ireland
+    - Belgium
+- name: Amundi
+  key: amundi
+  tier: B
+  bucket: banking
+  ats: talentsoft
+  slug: jobs.amundi.com
+  careers_url: https://jobs.amundi.com/
+  config:
+    host: jobs.amundi.com
+    lcid: 2057
+- name: TradingView
+  key: tradingview
+  tier: B
+  bucket: markets
+  ats: teamtailor
+  slug: tradingview.teamtailor.com
+  careers_url: https://www.tradingview.com/careers/
+  config:
+    host: tradingview.teamtailor.com
+- name: KPMG Portugal
+  key: kpmg-pt
+  tier: B
+  bucket: consulting
+  ats: workable
+  slug: kpmg-portugal
+  careers_url: https://kpmg.com/pt/pt/carreiras/estagios.html
+- name: Nvidia
+  key: nvidia
+  tier: B
+  bucket: bigtech
+  ats: workday
+  config:
+    host: nvidia.wd5.myworkdayjobs.com
+    tenant: nvidia
+    site: NVIDIAExternalCareerSite

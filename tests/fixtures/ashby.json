@@ -1,0 +1,49 @@
+{
+ "apiVersion": "1",
+ "jobs": [
+  {
+   "id": "uuid-1",
+   "title": "Working Student \u2013 Data & Analytics",
+   "department": "Data",
+   "team": "Analytics",
+   "employmentType": "Intern",
+   "location": "Berlin",
+   "secondaryLocations": [
+    {
+     "location": "Remote (Europe)"
+    }
+   ],
+   "isRemote": false,
+   "isListed": true,
+   "publishedAt": "2026-09-25T09:00:00.000+00:00",
+   "jobUrl": "https://jobs.ashbyhq.com/acme/uuid-1",
+   "applyUrl": "https://jobs.ashbyhq.com/acme/uuid-1/application",
+   "descriptionPlain": "Werkstudent role, 20h/week.",
+   "address": {
+    "postalAddress": {
+     "addressCountry": "Germany",
+     "addressLocality": "Berlin"
+    }
+   }
+  },
+  {
+   "id": "uuid-2",
+   "title": "Unlisted role",
+   "employmentType": "FullTime",
+   "location": "Lisbon",
+   "isListed": false,
+   "jobUrl": "x"
+  },
+  {
+   "id": "uuid-3",
+   "title": "Product Manager Intern",
+   "employmentType": "Intern",
+   "location": "Remote",
+   "isRemote": true,
+   "isListed": true,
+   "publishedAt": "2026-09-26T09:00:00Z",
+   "jobUrl": "https://jobs.ashbyhq.com/acme/uuid-3",
+   "descriptionPlain": "6-month off-cycle internship starting January 2027."
+  }
+ ]
+}

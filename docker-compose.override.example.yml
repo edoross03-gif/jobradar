@@ -1,0 +1,10 @@
+# Joins the existing warehouse network so DATABASE_URL can use the warehouse container's name as host.
+# Find the network with:  docker network ls   /   docker inspect <warehouse-db-container> | grep -A3 Networks
+services:
+  jobradar:
+    networks: [default, warehouse]
+
+networks:
+  warehouse:
+    external: true
+    name: ${WAREHOUSE_NETWORK:-warehouse_default}

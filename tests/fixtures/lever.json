@@ -1,0 +1,35 @@
+[
+ {
+  "id": "a1b2",
+  "text": "Graduate Programme 2028 - Finance",
+  "hostedUrl": "https://jobs.lever.co/acme/a1b2",
+  "createdAt": 1758000000000,
+  "workplaceType": "hybrid",
+  "country": "IT",
+  "categories": {
+   "location": "Milan",
+   "allLocations": [
+    "Milan",
+    "Rome"
+   ],
+   "team": "Finance",
+   "department": "G&A",
+   "commitment": "Full-time"
+  },
+  "descriptionPlain": "Our graduate programme for students graduating in 2028."
+ },
+ {
+  "id": "c3d4",
+  "text": "Account Executive",
+  "hostedUrl": "https://jobs.lever.co/acme/c3d4",
+  "createdAt": 1758000000000,
+  "workplaceType": "remote",
+  "country": "US",
+  "categories": {
+   "location": "Remote - US",
+   "team": "Sales",
+   "commitment": "Full-time"
+  },
+  "descriptionPlain": ""
+ }
+]
